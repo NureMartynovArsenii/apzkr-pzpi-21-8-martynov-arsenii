@@ -58,7 +58,7 @@ public class GardensController : ControllerBase
 
         var userResponses = users.Select(u => new
         {
-            //UserId = u.UserId,
+            
             u.Username,
             u.FirstName,
             u.LastName,
