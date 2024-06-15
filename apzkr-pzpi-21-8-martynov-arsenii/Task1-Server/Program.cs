@@ -12,20 +12,20 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Êîíôèãóðàöèÿ äëÿ äîñòóïà ê appsettings.json
+
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json")
     .Build();
 
-// Ïîäêëþ÷åíèå ê MongoDB
+
 builder.Services.AddSingleton<IMongoClient>(provider =>
 {
     var connectionString = configuration.GetConnectionString("MongoDB");
     return new MongoClient(connectionString);
 });
 
-// Ïîäêëþ÷åíèå ê áàçå äàííûõ MongoDB
+
 builder.Services.AddScoped(provider =>
 {
     var client = provider.GetRequiredService<IMongoClient>();
@@ -41,7 +41,7 @@ builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
-// Ðåãèñòðàöèÿ ñåðâèñîâ
+
 builder.Services.AddScoped<IAdminUserService, AdminUserService>();
 builder.Services.AddScoped<IGardenService, GardenService>();
 builder.Services.AddScoped<IEquipmentService, EquipmentService>();
@@ -52,7 +52,7 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddControllers();
 
-// Íàñòðîéêà àóòåíòèôèêàöèè è àâòîðèçàöèè
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -94,10 +94,10 @@ app.UseCors("AllowReactApp");
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Äîáàâëåíèå ìàðøðóòà äëÿ êîðíåâîãî ïóòè
+
 app.MapGet("/", () => "Hello World!");
 
-// Äîáàâëåíèå ìàðøðóòà äëÿ êîíòðîëëåðà
+
 app.MapControllers();
 
 app.Run();
