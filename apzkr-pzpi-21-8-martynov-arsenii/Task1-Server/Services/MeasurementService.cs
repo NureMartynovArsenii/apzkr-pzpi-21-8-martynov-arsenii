@@ -135,7 +135,7 @@ public class MeasurementService : IMeasurementService
             }
         }
     }
-
+    //Business logic
     private double CalculateHeatIndex(double temperature, double humidity)
     {
         // Расчет точки росы
