@@ -149,28 +149,6 @@ public class GardensController : ControllerBase
 
 
 
-public class GardenUpdateModel
-{
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string Director { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        // Список користувачів може бути необов'язковим
-        public List<UserReference> Users { get; set; } = new List<UserReference>();
-}
-
-    public class GardenCreateModel
-    {
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string Director { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        // Зробіть список користувачів необов'язковим
-        public List<UserReference> Users { get; set; } = new List<UserReference>();
-    }
-
     public class Garden
     {
         [BsonId]
