@@ -12,7 +12,6 @@ import Measurements from './Measurements';
 import './i18n'
 import UserSettings from './UserSettings';
 import Logout from './Logout';
-/*import { BrowserRouter as *//*Router*//* *//*Route*//* Routes, Navigate } from 'react-router-dom';*/
 import './App.css';
 
 
