@@ -40,11 +40,6 @@ public class GardenRepository : IGardenRepository
     {
         await _collection.UpdateOneAsync(Builders<Garden>.Filter.Eq("Id", id), update);
     }
-    //public async Task UpdateAsync(string id, UpdateDefinition<Garden> update)
-    //{
-    //    await _collection.UpdateOneAsync(Builders<Garden>.Filter.Eq("Id", id), update);
-    //}
-
 
     public async Task DeleteAsync(string id)
     {
