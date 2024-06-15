@@ -64,28 +64,3 @@ public class MeasurementsController : ControllerBase
     }
 }
 
-
-
-//public class Measurement
-//{
-//    [BsonId]
-//    [BsonRepresentation(BsonType.ObjectId)]
-//    public string Id { get; set; }
-//    public string DeviceId { get; set; }
-//    public string MeasurementType { get; set; }
-//    public string Value { get; set; }
-//}
-
-////public class MeasurementCreateModel
-////{
-////    public string DeviceId { get; set; }
-////    public string MeasurementType { get; set; }
-////    public string Value { get; set; }
-////}
-
-//public class MeasurementUpdateModel
-//{
-//    public string DeviceId { get; set; }
-//    public string MeasurementType { get; set; }
-//    public string Value { get; set; }
-//}
