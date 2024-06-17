@@ -55,7 +55,7 @@ public class GardenService : IGardenService
             throw new Exception("Garden not found");
         }
 
-        // Добавляем новых пользователей, не удаляя старых
+        
         var updatedUsers = garden.Users.Concat(updateModel.Users.Where(u => !garden.Users.Any(existingUser => existingUser.Id == u.Id))).ToList();
 
         var update = Builders<Garden>.Update
