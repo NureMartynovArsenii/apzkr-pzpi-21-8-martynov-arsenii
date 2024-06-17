@@ -564,7 +564,7 @@ ChildClimaCare управляє кліматом, взаємодіючи з clie
 5. Документація API RESTful. URL: https://restfulapi.net (дата звернення: 13.04.2024).
 6. Еріх Гамма, Річард Хелм, Ральф Джонсон, Джон Вліссідес. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley Professional, 1994. – 395 с.
 7. Посилання на Github репозиторій. URL: https://github.com/NureMartynovArsenii/apzkr-pzpi-21-8-martynov-arsenii
-
+8. Посилання на функціональне тестування системи URL: https://www.youtube.com/watch?v=SUWxkMb4Qso
 
 ДОДАТОК А
 Код серверної частини
