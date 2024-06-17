@@ -73,7 +73,7 @@ public class UserService : IUserService
             .Set(u => u.FirstName, updateUserModel.FirstName)
             .Set(u => u.LastName, updateUserModel.LastName)
             .Set(u => u.Email, updateUserModel.Email)
-            .Set(u => u.Password, updateUserModel.Password) // Здесь должен быть хеш пароля
+            .Set(u => u.Password, updateUserModel.Password)
             .Set(u => u.Phone, updateUserModel.Phone)
             .Set(u => u.Role, updateUserModel.Role);
         await _userRepository.UpdateAsync(id, update);
