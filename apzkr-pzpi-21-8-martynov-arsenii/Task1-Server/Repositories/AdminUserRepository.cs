@@ -13,7 +13,7 @@ public interface IAdminUserRepository
     Task DeleteAsync(string id);
 }
 
-// Repositories/AdminUserRepository.cs
+
 public class AdminUserRepository : IAdminUserRepository
 {
     private readonly IMongoCollection<AdminUser> _collection;
@@ -53,5 +53,3 @@ public class AdminUserRepository : IAdminUserRepository
         await _collection.DeleteOneAsync(Builders<AdminUser>.Filter.Eq("Id", id));
     }
 }
-
-// Аналогичные репозитории для Garden, Equipment, Measurement и User
