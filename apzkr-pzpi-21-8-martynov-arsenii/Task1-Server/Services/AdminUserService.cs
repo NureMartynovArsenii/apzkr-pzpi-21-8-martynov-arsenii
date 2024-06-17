@@ -1,5 +1,3 @@
-﻿// Services/IAdminUserService.cs
-// Services/IAdminUserService.cs
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using MongoDB.Driver;
@@ -14,7 +12,7 @@ public interface IAdminUserService
     Task DeleteUserAsync(string id);
 }
 
-// Services/AdminUserService.cs
+
 public class AdminUserService : IAdminUserService
 {
     private readonly IAdminUserRepository _repository;
@@ -63,8 +61,3 @@ public class AdminUserService : IAdminUserService
         await _repository.DeleteAsync(id);
     }
 }
-
-// Аналогичные сервисы для Garden, Equipment, Measurement и User
-
-
-// Analogous services can be created for Garden, Equipment, and Measurement
