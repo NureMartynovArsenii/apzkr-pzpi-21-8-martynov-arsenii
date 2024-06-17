@@ -79,7 +79,7 @@ public class GardensController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateGarden([FromBody] GardenCreateModel gardenCreateModel)
     {
-        // Проверка валидности идентификаторов пользователей
+        
         if (gardenCreateModel.Users != null)
         {
             foreach (var user in gardenCreateModel.Users)
@@ -157,7 +157,6 @@ public class User
 
     [BsonIgnore]
     public string UserId => Id.ToString();
-
     public string Username { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
