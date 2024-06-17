@@ -21,7 +21,7 @@ public class EmployeeController : ControllerBase
     {
         var employeeUser = await _adminUserService.GetByUsernameAsync(loginModel.Username);
 
-        if (employeeUser == null || employeeUser.Password != loginModel.Password) // Здесь должна быть проверка хеша пароля
+        if (employeeUser == null || employeeUser.Password != loginModel.Password)
         {
             return Unauthorized("Invalid username or password.");
         }
