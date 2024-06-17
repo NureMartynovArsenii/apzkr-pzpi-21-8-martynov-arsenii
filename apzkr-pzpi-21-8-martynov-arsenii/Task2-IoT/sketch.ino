@@ -17,15 +17,15 @@
 
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
-String jwtToken = ""; // Глобальна змінна для зберігання токену
+String jwtToken = ""; 
 
 SensorManager sensorManager;
 DataSender dataSender;
 DebugManager debugManager;
 WebServer server(80);
 
-bool isMeasuring = false; // Переменная для измерений
-bool isMeasuringInitialized = false; // Переменная для отслеживания инициализации
+bool isMeasuring = false;
+bool isMeasuringInitialized = false; 
 
 void handleToken() {
     if (server.hasArg("token")) {
@@ -42,25 +42,25 @@ void setup() {
     WiFiManager::connect(ssid, password);
     debugManager.begin();
 
-    server.on("/token", handleToken); // Додавання маршруту для обробки токену
+    server.on("/token", handleToken); 
     server.begin();
     Serial.println("HTTP server started");
 
-    // Отримуємо токен при запуску
+    
     getToken();
 }
 
 void loop() {
-    server.handleClient(); // Обробка клієнтів
+    server.handleClient(); 
     if (jwtToken != "") {
-        checkMeasurementStatus(); // Перевірка статусу вимірювань
-        // Якщо вимірювання включено, виконуємо вимірювання
+        checkMeasurementStatus(); 
+        
         if (isMeasuringInitialized && isMeasuring) {
             performMeasurements();
-            delay(10000); // Чекаємо 10 секунд перед наступним вимірюванням
+            delay(10000);
         } else {
             Serial.println("Measurement is not active.");
-            delay(5000); // Чекаємо 5 секунд перед повторною перевіркою статусу
+            delay(5000); 
         }
     } else {
         Serial.println("JWT token is empty, trying to get a new one...");
@@ -108,10 +108,10 @@ void performMeasurements() {
 void getToken() {
     if (WiFi.status() == WL_CONNECTED) {
         HTTPClient http;
-        http.begin("http://2524-2a03-7380-238a-357-906c-3064-56c5-c549.ngrok-free.app/api/admin/login"); // URL для отримання токену
+        http.begin("http://2524-2a03-7380-238a-357-906c-3064-56c5-c549.ngrok-free.app/api/admin/login"); 
         http.addHeader("Content-Type", "application/json");
 
-        // Створюємо JSON для авторизації
+        
         String requestBody = "{\"username\":\"ClimateAdmin\",\"password\":\"climateadmin123\"}";
         int httpResponseCode = http.POST(requestBody);
 
@@ -143,7 +143,7 @@ void checkMeasurementStatus() {
     if (WiFi.status() == WL_CONNECTED && jwtToken != "") {
         HTTPClient http;
         http.begin("http://2524-2a03-7380-238a-357-906c-3064-56c5-c549.ngrok-free.app/api/admin/status");
-        http.addHeader("Authorization", "Bearer " + jwtToken); // Додавання заголовку авторизації
+        http.addHeader("Authorization", "Bearer " + jwtToken); 
         int httpResponseCode = http.GET();
 
         if (httpResponseCode > 0) {
@@ -153,11 +153,11 @@ void checkMeasurementStatus() {
 
             StaticJsonDocument<200> jsonDoc;
             deserializeJson(jsonDoc, response);
-            bool newIsMeasuring = jsonDoc["isMeasuring"]; // Используем правильное поле JSON
+            bool newIsMeasuring = jsonDoc["isMeasuring"]; 
             
             // Обновление переменной isMeasuring на основе ответа сервера
             isMeasuring = newIsMeasuring;
-            isMeasuringInitialized = true; // <-- Обозначаем, что переменная инициализирована
+            isMeasuringInitialized = true; 
             if (isMeasuring) {
                 Serial.println("Measurement started");
             } else {
@@ -173,7 +173,3 @@ void checkMeasurementStatus() {
         Serial.println("Error in WiFi connection or JWT token is empty");
     }
 }
-
-
-
-
