@@ -129,7 +129,7 @@ public class UsersController : ControllerBase
     [HttpPost("logout")]
     public IActionResult Logout()
     {
-        // Додайте тут код, якщо потрібно управляти сесіями на стороні сервера
+        
         return Ok(new { Message = "Logged out successfully" });
     }
 }
