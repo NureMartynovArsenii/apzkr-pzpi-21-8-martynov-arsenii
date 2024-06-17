@@ -34,7 +34,7 @@ public class AdminController : ControllerBase
     {
         var adminUser = await _adminUserService.GetByUsernameAsync(loginModel.Username);
 
-        if (adminUser == null || adminUser.Password != loginModel.Password) // Здесь должна быть проверка хеша пароля
+        if (adminUser == null || adminUser.Password != loginModel.Password) 
         {
             return Unauthorized("Invalid username or password.");
         }
@@ -69,7 +69,7 @@ public class AdminController : ControllerBase
     {
         if (adminUser.Id != null)
         {
-            adminUser.Id = null; // Убедитесь, что Id не передается
+            adminUser.Id = null; 
         }
 
         await _adminUserService.CreateUserAsync(adminUser);
@@ -92,7 +92,7 @@ public class AdminController : ControllerBase
         return Ok("Користувача успішно видалено.");
     }
 
-    // Методы для администрирования садков
+   
 
     [Authorize(Policy = "AdminOnly")]
     [HttpGet("Gardens")]
@@ -336,7 +336,7 @@ public class AdminController : ControllerBase
     [HttpPost("start")]
     public IActionResult StartMeasurement()
     {
-        // Логіка для старту вимірювань
+        
         _measurementService.StartMeasurement();
         return Ok(new { Message = "Measurement started" });
     }
@@ -344,7 +344,7 @@ public class AdminController : ControllerBase
     [HttpPost("stop")]
     public IActionResult StopMeasurement()
     {
-        // Логіка для зупинки вимірювань
+        
         _measurementService.StopMeasurement();
         return Ok(new { Message = "Measurement stopped" });
     }
