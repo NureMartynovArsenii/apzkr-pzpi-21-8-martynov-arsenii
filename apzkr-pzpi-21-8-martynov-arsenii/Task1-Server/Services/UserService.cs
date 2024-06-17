@@ -57,10 +57,10 @@ public class UserService : IUserService
             FirstName = createUserModel.FirstName,
             LastName = createUserModel.LastName,
             Email = createUserModel.Email,
-            Password = createUserModel.Password, // Здесь должен быть хеш пароля
+            Password = createUserModel.Password,
             Phone = createUserModel.Phone,
             Role = createUserModel.Role,
-            Status = "Active" // Устанавливаем значение по умолчанию
+            Status = "Active"
         };
         await _userRepository.CreateAsync(user);
         return user;
