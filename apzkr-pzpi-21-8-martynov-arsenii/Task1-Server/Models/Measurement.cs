@@ -10,5 +10,5 @@ public class Measurement
     public string DeviceId { get; set; }
     public string MeasurementType { get; set; }
     public string Value { get; set; }
-    public DateTime Timestamp { get; set; } // Добавляем временную метку
+    public DateTime Timestamp { get; set; }
 }
