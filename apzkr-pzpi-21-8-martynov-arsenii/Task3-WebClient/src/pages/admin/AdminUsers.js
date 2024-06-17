@@ -63,7 +63,7 @@ const AdminUsers = () => {
 
     const handleEditUser = (user) => {
         setIsEditing(true);
-        setUserForm({ ...user, password: '' }); // Оставляем поле пароля пустым
+        setUserForm({ ...user, password: '' }); 
     };
 
     const handleUpdateUser = async () => {
