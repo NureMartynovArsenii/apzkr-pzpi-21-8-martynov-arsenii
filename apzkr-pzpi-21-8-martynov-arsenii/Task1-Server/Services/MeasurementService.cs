@@ -138,10 +138,10 @@ public class MeasurementService : IMeasurementService
     //Business logic
     private double CalculateHeatIndex(double temperature, double humidity)
     {
-        // Расчет точки росы
+        
         
         double dewPoint = CalculateDewPoint(temperature, humidity);
-        // Расчет Humidex
+        // Humidex
         double e = 6.11 * Math.Exp(5417.7530 * ((1 / 273.16) - (1 / (dewPoint + 273.15))));
         double h = 0.5555 * (e - 10.0);
         double humidex = temperature + h;
