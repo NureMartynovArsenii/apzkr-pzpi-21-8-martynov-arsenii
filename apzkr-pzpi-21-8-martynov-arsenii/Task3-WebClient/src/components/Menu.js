@@ -4,7 +4,6 @@ import './Menu.css';
 import accountIcon from './account-icon.png';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-// Вкажіть правильний шлях до іконки
 
 const Menu = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
