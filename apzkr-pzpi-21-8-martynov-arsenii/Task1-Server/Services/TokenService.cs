@@ -43,7 +43,7 @@ public class TokenService : ITokenService
     {
         var claims = new[]
         {
-            //new Claim(JwtRegisteredClaimNames.Sub, user.Username),
+            
             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
             new Claim(ClaimTypes.Name, user.Username),
             new Claim(ClaimTypes.Role, user.Role)
