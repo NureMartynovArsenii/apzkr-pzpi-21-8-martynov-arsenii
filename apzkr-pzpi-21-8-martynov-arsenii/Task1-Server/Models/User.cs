@@ -11,7 +11,6 @@ public class Users
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }
-    // Пароль не повинен бути відображений у відповіді API
     public string Password { get; set; }
     public string Phone { get; set; }
     public string Role { get; set; }
