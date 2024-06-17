@@ -3,8 +3,8 @@ using MongoDB.Bson;
 
 public class Room
 {
-    [BsonId] // Вказує, що це поле є ідентифікатором документа
-    [BsonRepresentation(BsonType.ObjectId)] // Вказує, що поле має бути представлене як ObjectId
+    [BsonId] 
+    [BsonRepresentation(BsonType.ObjectId)] 
     public string Id { get; set; }
     public string RoomNumber { get; set; }
     public string Capacity { get; set; }
