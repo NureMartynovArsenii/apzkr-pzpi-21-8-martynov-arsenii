@@ -8,7 +8,7 @@
     public List<UserReference> Users { get; set; } = new List<UserReference>();
 }
 
-//// Dtos/GardenUpdateModel.cs
+
 public class GardenUpdateModel
 {
     public string Name { get; set; }
