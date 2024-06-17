@@ -11,7 +11,7 @@ public interface IRepository<T>
     Task DeleteAsync(string id);
 }
 
-// Repositories/MongoRepository.cs
+
 public class MongoRepository<T> : IRepository<T>
 {
     private readonly IMongoCollection<T> _collection;
