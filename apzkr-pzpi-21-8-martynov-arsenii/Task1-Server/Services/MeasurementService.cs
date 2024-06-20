@@ -136,6 +136,7 @@ public class MeasurementService : IMeasurementService
         }
     }
     //Business logic
+    // Calculate Humidex based on temperature and humidity
     private double CalculateHeatIndex(double temperature, double humidity)
     {
         
@@ -148,7 +149,7 @@ public class MeasurementService : IMeasurementService
 
         return humidex;
     }
-
+    // Calculate Dew Point based on temperature and humidity
     private double CalculateDewPoint(double temperature, double humidity)
     {
         double a = 17.27;
